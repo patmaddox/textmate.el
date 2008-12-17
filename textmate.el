@@ -111,7 +111,7 @@
     (define-key osx-key-mode-map (kbd "A-t") 'textmate-goto-file)
     (define-key osx-key-mode-map (kbd "A-T") 'textmate-goto-symbol)) 
  
-  (let ((member) (i 0) (access (if (boundp 'aquamacs-version) 'cadr 'caddr)))
+  (let ((member) (i 0) (access (if (functionp 'caddr) 'caddr 'cadr)))
     (setq member (nth i *textmate-keybindings-list*))
     (while member
       (if (funcall access member)
